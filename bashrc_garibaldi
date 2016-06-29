@@ -1,0 +1,50 @@
+#Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
+#prompt style
+#PS1="\[\e[1;3m\]\h\[\e[0m\] \\W> "
+PS1='\[\e[0;32m\]\u\[\e[m\] @ \[\e[1;33m\]\h\[\e[m\]\[\e[1;34m\] \w \[\e[m\]\[\e[1;32m\]\$\[\e[m\] '
+
+#PATH changes
+PATH=$PATH:/gpfs/home/mmayers/bin/submit_blazmass:/gpfs/home/mmayers/bin:/gpfs/home/gstupp/DTASelect2:/gpfs/home/mmayers/metaproteomics/scripts:/gpfs/home/mmayers/classwork/bin/FastQC:/gpfs/home/mmayers/.local/bin
+
+export PATH
+
+#PythonPath
+PYTHONPATH=/gpfs/home/mmayers/powerline:$PYTHONPATH:/gpfs/home/mmayers/
+
+export PYTHONPATH
+
+#Colorful grep results
+export GREP_OPTIONS='--color=auto'
+
+#Aliases
+alias wl='ssh wl-cmadmin.scripps.edu'
+alias qu='qstat -u mmayers'
+#alias rm='rm -i'
+
+# for jvm memory heap
+ulimit -s unlimited
+
+#Additional modules
+module load sequest
+export DRMAA_LIBRARY_PATH=/opt/applications/pbs-drmaa/current/gnu/lib/libdrmaa.so
+
+#module load python
+#module load python/2.6.5
+module load python/3.3.2
+module load java/1.7.0_21
+module load python/3.5.1
+module load java/1.8.0_40
+module load java/1.8.0_65
+
+#Powerline Shell Extension
+if [ -f ~/.local/lib/python3.3/site-packages/powerline/bindings/bash/powerline.sh ]; then
+    powerline-daemon -q
+    POWERLINE_BASH_CONTINUATION=1
+    POWERLINE_BASH_SELECT=1
+    source ~/.local/lib/python3.3/site-packages/powerline/bindings/bash/powerline.sh
+fi
+
