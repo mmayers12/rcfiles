@@ -1,0 +1,40 @@
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+  . /etc/bashrc
+fi
+
+# Biothings config
+export BIOTHING_CONFIG=config_biothings
+
+# Allow Terminal Colors
+export CLICOLOR=1
+
+#prompt style
+export PS1="\[\e[0;32m\]\u\[\e[m\] @ \[\e[1;32m\]\h\[\e[m\]\[\e[1;34m\] \w \[\e[m\]\[\e[1;32m\]\$\[\e[m\] " 
+
+test -e ~/.dircolors && \
+   eval `dircolors -b ~/.dircolors`
+
+#Aliases
+alias ls='ls --color=always'
+alias ll='ls -lh'
+alias la='ls -al'
+alias wl='ssh wl'
+alias garibaldi='ssh garibaldi'
+alias avalanche='ssh avalanche'
+alias su08='ssh su08'
+alias gbav='ssh gbav'
+alias gbwl='ssh gbwl'
+alias ripy='ssh -L 27000:localhost:27000 gbwl'
+alias gbs3='ssh -fNL 9200:localhost:9200 gbs3'
+alias gbs8='ssh gbs8'
+alias grep='grep --color="auto"'
+alias pip3='python3 -mpip'
+alias remote_neo='ssh -fNL 7474:localhost:7474 gbav & ssh -fNL 7687:localhost:7687 gvav'
+
+#Powerline Shell Extension
+#powerline-daemon -q
+# The following two lines make the prompt refresh very slow in fedora
+#POWERLINE_BASH_CONTINUATION=1
+#POWERLINE_BASH_SELECT=1
+#. /usr/share/powerline/bash/powerline.sh

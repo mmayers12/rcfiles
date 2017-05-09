@@ -1,0 +1,27 @@
+# .bash_profile
+
+# Import GNU Utils
+PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
+MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
+
+# Get the aliases and functions
+if [ -f ~/.bashrc ]; then
+	. ~/.bashrc
+fi
+
+# User specific environment and startup programs
+
+EDITOR=vim
+export EDITOR
+
+PATH=/usr/local/bin:/usr/local/sbin:$PATH:$HOME/.local/bin:$HOME/bin
+export PATH
+
+PYTHONPATH=$PYTHONPATH:$HOME/python_pkgs
+export PYTHONPATH
+
+# Add my own version of neo4j
+export PATH="/Users/mmayers/projects/compound_repo/rephetio-neo4j/neo4j-community-3.1.0/bin:$PATH"
+
+# added by Anaconda3 4.2.0 installer
+#export PATH="/Users/mmayers/software/anaconda3/bin:$PATH"
