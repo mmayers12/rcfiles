@@ -1,0 +1,38 @@
+if [ -f /etc/bash.bashrc ]; then
+    . /etc/bash.bashrc
+fi
+
+#Propt colors
+PS1='\[\e[0;32m\]\u\[\e[m\] @ \[\e[1;37m\]\h\[\e[m\] \[\e[1;34m\]\w\[\e[m\] \[\e[1;32m\]\$\[\e[m\] '
+
+# su08 specific changes
+if [ $HOSTNAME = "su08" ]; then
+    export HOME=/opt/mmayers
+    cd $HOME
+    export PS1='\[\e[0;32m\]\u\[\e[m\] @ \[\e[1;31m\]\h\[\e[m\] \[\e[1;34m\]\w\[\e[m\] \[\e[1;32m\]\$\[\e[m\] '
+fi
+
+#wl specific changes
+if [[ $HOSTNAME = wl-cm* ]]; then
+    export PATH=/home/mmayers/bin:/home/mmayers/metaproteomics:$PATH:/home/mmayers/.local/bin
+    export PYTHONPATH='/home/mmayers:/home/mmayers/l1000/src'
+    export PS1='\[\e[0;32m\]\u\[\e[m\] @ \[\e[1;35m\]\h\[\e[m\] \[\e[1;34m\]\w\[\e[m\] \[\e[1;32m\]\$\[\e[m\] '
+fi
+
+#Alias changes
+alias ls='ls --color=auto'
+alias ll='ls -lh'
+alias la='ls -al'
+alias grep='grep --color=auto'
+
+#Default Editor
+export VISUAL=`which vim`
+export EDITOR="$VISUAL"
+
+#Powerline Shell Extension
+#if [[ $HOSTNAME != su* ]]; then
+#    powerline-daemon -q
+#    POWERLINE_BASH_CONTINUATION=1
+#    POWERLINE_BASH_SELECT=1
+#    source ~/.local/lib/python3.4/site-packages/powerline/bindings/bash/powerline.sh
+#fi
