@@ -1,10 +1,10 @@
+# Source global definitions
+if [ -f /etc/skel/.bashrc ]; then
+  . /etc/skel/.bashrc
+fi
+
 #prompt style
 PS1='\[\e[0;32m\]\u\[\e[m\] @ \[\e[1;32m\]\h\[\e[m\]\[\e[1;34m\] \w \[\e[m\]\[\e[1;32m\]\$\[\e[m\] '
-
-# Source global definitions
-if [ -f /etc/bashrc ]; then
-  . /etc/bashrc
-fi
 
 #PATH changes
 

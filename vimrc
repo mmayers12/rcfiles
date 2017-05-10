@@ -34,6 +34,9 @@ inoremap jk <ESC>
 highlight ColorColumn ctermbg=232
 let &colorcolumn="".join(range(81,120),",")
 
+" Ensure Highlighting for search terms
+set hlsearch
+
 " powerline setup
 python3 from powerline.vim import setup as powerline_setup
 python3 powerline_setup()
