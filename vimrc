@@ -31,8 +31,8 @@ nnoremap k gk
 inoremap jk <ESC>
 
 " Change the background color from column 80 to 120
-highlight ColorColumn ctermbg=232
-let &colorcolumn="".join(range(81,120),",")
+highlight ColorColumn ctermbg=236
+let &colorcolumn="".join(range(81,85),",")
 
 " Ensure Highlighting for search terms
 set hlsearch
