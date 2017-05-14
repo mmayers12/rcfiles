@@ -1,23 +1,25 @@
-if [ -f /etc/bash.bashrc ]; then
-    . /etc/bash.bashrc
+if [ -f /etc/skel/.bashrc ]; then
+    . /etc/skel/.bashrc
 fi
 
-#Propt colors
-PS1='\[\e[0;32m\]\u\[\e[m\] @ \[\e[1;37m\]\h\[\e[m\] \[\e[1;34m\]\w\[\e[m\] \[\e[1;32m\]\$\[\e[m\] '
+HOST_COLOR='1;37'
 
 # su08 specific changes
 if [ $HOSTNAME = "su08" ]; then
     export HOME=/opt/mmayers
     cd $HOME
-    export PS1='\[\e[0;32m\]\u\[\e[m\] @ \[\e[1;31m\]\h\[\e[m\] \[\e[1;34m\]\w\[\e[m\] \[\e[1;32m\]\$\[\e[m\] '
+    HOST_COLOR='1;31'
 fi
 
 #wl specific changes
 if [[ $HOSTNAME = wl-cm* ]]; then
     export PATH=/home/mmayers/bin:/home/mmayers/metaproteomics:$PATH:/home/mmayers/.local/bin
     export PYTHONPATH='/home/mmayers:/home/mmayers/l1000/src'
-    export PS1='\[\e[0;32m\]\u\[\e[m\] @ \[\e[1;35m\]\h\[\e[m\] \[\e[1;34m\]\w\[\e[m\] \[\e[1;32m\]\$\[\e[m\] '
+    HOST_COLOR='1;35'
 fi
+
+#Propt colors
+export PS1='\[\e[0;32m\]\u\[\e[m\] @ \[\e['$HOST_COLOR'm\]\h\[\e[m\] \[\e[1;34m\]\w\[\e[m\] \[\e[1;32m\]\$\[\e[m\] '
 
 #Alias changes
 alias ls='ls --color=auto'
