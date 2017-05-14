@@ -4,7 +4,21 @@ if [ -f /etc/skel/.bashrc ]; then
 fi
 
 #prompt style
-PS1='\[\e[0;32m\]\u\[\e[m\] @ \[\e[1;32m\]\h\[\e[m\]\[\e[1;34m\] \w \[\e[m\]\[\e[1;32m\]\$\[\e[m\] '
+HOST_COLOR='1;32'
+
+if [ $HOSTNAME = "avalanche" ]; then
+    HOST_COLOR='1;36'
+fi
+
+if [ $HOSTNAME = "kylo" ]; then
+    HOST_COLOR='1;38;5;214'
+fi
+
+export PS1='\[\e[0;32m\]\u\[\e[m\] @ \[\e['$HOST_COLOR'm\]\h\[\e[m\]\[\e[1;34m\] \w \[\e[m\]\[\e[1;32m\]\$\[\e[m\] '
+
+# Default text editor
+export VISUAL="/usr/bin/vim"
+export EDITOR=$VISUAL
 
 #PATH changes
 
