@@ -16,6 +16,10 @@ fi
 
 export PS1='\[\e[0;32m\]\u\[\e[m\] @ \[\e['$HOST_COLOR'm\]\h\[\e[m\]\[\e[1;34m\] \w \[\e[m\]\[\e[1;32m\]\$\[\e[m\] '
 
+# Default text editor
+export VISUAL="/usr/bin/vim"
+export EDITOR=$VISUAL
+
 #PATH changes
 
 #Aliases
