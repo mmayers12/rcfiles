@@ -5,6 +5,10 @@ fi
 
 #prompt style
 PS1='\[\e[0;32m\]\u\[\e[m\] @ \[\e[1;32m\]\h\[\e[m\]\[\e[1;34m\] \w \[\e[m\]\[\e[1;32m\]\$\[\e[m\] '
+if [ $HOSTNAME = "avalanche" ]; then
+    PS1='\[\e[0;32m\]\u\[\e[m\] @ \[\e[1;36m\]\h\[\e[m\]\[\e[1;34m\] \w \[\e[m\]\[\e[1;32m\]\$\[\e[m\] '
+fi
+
 
 #PATH changes
 
