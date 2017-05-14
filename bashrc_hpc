@@ -1,5 +1,5 @@
-if [ -f /etc/bash.bashrc ]; then
-    . /etc/bash.bashrc
+if [ -f /etc/skel/.bashrc ]; then
+    . /etc/skel/.bashrc
 fi
 
 #Propt colors
