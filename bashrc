@@ -34,3 +34,6 @@ alias gbs8='ssh gbs8'
 alias grep='grep --color="auto"'
 alias pip3='python3 -mpip'
 alias python='python3'
+
+# LS_COLORS Changes (to save my eyes!!)
+export LS_COLORS=$LS_COLORS'ow=1;38;5;252'
